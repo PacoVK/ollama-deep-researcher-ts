@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "ES2021",
     "lib": ["ES2021", "ES2022.Object", "DOM"],
-    "module": "NodeNext",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "noImplicitReturns": true,
