@@ -1,0 +1,27 @@
+services:
+  server:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    volumes:
+      - ${PWD}:/app
+    environment:
+      - LLM_BASE_URL=http://host.docker.internal:11434
+    ports:
+      - "2024:2024"
+
+  ollama-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: ollama-webui
+    ports:
+      - 8080:8080
+    environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
+      - OLLAMA_BASE_URLS=http://host.docker.internal:11434 #comma separated ollama hosts
+      - ENV=dev
+      - WEBUI_AUTH=False
+      - WEBUI_NAME=valiantlynx AI
+      - WEBUI_URL=http://localhost:8080
+      - WEBUI_SECRET_KEY=t0p-s3cr3t
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: unless-stopped
