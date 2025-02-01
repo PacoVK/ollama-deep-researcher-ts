@@ -59,6 +59,7 @@ TAVILY_API_KEY=<your_tavily_api_key>
 git clone https://github.com/pacovk/ollama-deep-researcher-ts.git
 cd ollama-deep-researcher-ts
 yarn install
+docker compose up -d
 ```
 
 ### Using the LangGraph Studio UI
