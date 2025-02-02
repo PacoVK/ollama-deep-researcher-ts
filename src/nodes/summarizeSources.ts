@@ -15,12 +15,12 @@ export const summarizeSources = async (
   let humanMessageContent;
 
   if (existingSummary) {
-    humanMessageContent = `Extend the existing summary: ${existingSummary}\n\n
-Include new search results: ${mostRecentWebResearch} 
-That addresses the following topic: ${state.researchTopic}`;
+    humanMessageContent = `<User Input> \n ${state.researchTopic} \n <User Input>\n\n
+<Existing Summary> \n ${existingSummary} \n <Existing Summary>\n\n
+<New Search Results> \n ${mostRecentWebResearch} \n <New Search Results>`;
   } else {
-    humanMessageContent = `Generate a summary of these search results: ${mostRecentWebResearch} 
-That addresses the following topic: ${state.researchTopic}`;
+    humanMessageContent = `<User Input> \n ${state.researchTopic} \n <User Input>\n\n 
+<Search Results> \n ${mostRecentWebResearch} \n <Search Results>`;
   }
 
   const configuration = ensureConfiguration(config);
